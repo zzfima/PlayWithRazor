@@ -2,9 +2,19 @@
 @page "/sample"
 
 <h3>Test</h3>
+
+@* call function *@
 <h3>@getCounter()</h3>
-<button class="btn btn-primary" @onclick="removeOne">Click me</button>
+
+@* using event handler *@
+<button class="btn btn-primary" @onclick="removeOne">Remove 1</button>
+
+@* using lambda function *@
+<button class="btn btn-primary" @onclick=@(()=>i++)>Add 1</button>
+
+@* using inline calculations *@
 <h3>Counter * 2: @(2 * i)</h3>
+
 @code {
     private int i = 44;
 
