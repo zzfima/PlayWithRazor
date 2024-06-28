@@ -1,0 +1,10 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorWebApp3.Data.BlazorWebApp3Context DB
+
+<PageTitle>Home</PageTitle>
+
+<QuickGrid Class="table" Items="DB.Human">
+    <PropertyColumn Property="human => human.Name" />
+    <PropertyColumn Property="human => human.Weight" />
+</QuickGrid>
