@@ -1,13 +1,30 @@
 ﻿@* razor component. do not use routing *@
 <p>
-    <b>Name: </b>
-    <span>@CurrentContact?.FirstName @CurrentContact?.LastName</span><br />
+	<b>Name: </b>
+	<span>@CurrentContact?.FirstName @CurrentContact?.LastName</span><br />
 
-    <b>Email: </b>
-    <span><i>@CurrentContact?.Email</i></span>
+	<b>Email: </b>
+	<span><i>@CurrentContact?.Email</i></span>
+
+	<br />
+	<button value="Show Info2" title="Show Info1" onclick="@(() =>
+		{
+			ShowDisplayInfo = !ShowDisplayInfo;
+			buttonText = ShowDisplayInfo == false ? "Show" : "Hide";
+		})">@buttonText</button>
+
+	@if (ShowDisplayInfo)
+	{
+		<span><i>@CurrentContact?.FirstName has email @CurrentContact?.Email</i></span>
+	}
+	<br />
 </p>
 
 @code {
-    [Parameter]
-    public Contact? CurrentContact { get; set; }
+	[Parameter]
+	public Contact? CurrentContact { get; set; }
+
+	private bool ShowDisplayInfo { get; set; } = false;
+
+	private string buttonText = "Show";
 }
