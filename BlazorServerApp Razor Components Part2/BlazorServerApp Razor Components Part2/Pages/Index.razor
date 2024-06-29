@@ -1,9 +1,21 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@foreach (var item in contacts)
+{
+    <p>@item.FirstName</p>
+    <p>@item.LastName</p>
+    <p>@item.Email</p>
+}
 
-<h1>Hello, world!</h1>
+@code {
+    private List<Contact> contacts = new();
 
-Welcome to your new app.
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+        contacts.Add(new Contact { FirstName = "Alex", LastName = "Bobrov", Email = "alex.b@gmail.com" });
+        contacts.Add(new Contact { FirstName = "Fedor", LastName = "Sankin", Email = "fedor.s@gmail.com" });
+        contacts.Add(new Contact { FirstName = "Mike", LastName = "Ash", Email = "mike.ash@gmail.com" });
+    }
+}
