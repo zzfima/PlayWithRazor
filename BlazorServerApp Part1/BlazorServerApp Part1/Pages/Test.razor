@@ -29,10 +29,33 @@ else
     <p>I = @i</p>
 }
 
+@* using foreach *@
+@foreach (var item in names)
+{
+    <p>name: @item</p>
+}
+
 
 @code {
     private string parity = string.Empty;
     private int num = 44;
     private void removeOne() => num--;
     private string getCounter() => $"counter = {num}";
+    private List<string> names = new List<string> { "Alex", "Vasil" };
+
+    //called before foreach
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        names.Add("Mashka");
+    }
+
+    //called after foreach
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        names.Add("Mike");
+    }
 }
