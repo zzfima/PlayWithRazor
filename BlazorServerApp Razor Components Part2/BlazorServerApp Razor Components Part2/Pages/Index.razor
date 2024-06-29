@@ -2,9 +2,13 @@
 
 @foreach (var item in contacts)
 {
-    <p>@item.FirstName</p>
-    <p>@item.LastName</p>
-    <p>@item.Email</p>
+    <p>
+        <b>Name: </b>
+        <span>@item.FirstName @item.LastName</span><br />
+
+        <b>Email: </b>
+        <span><i>@item.Email</i></span>
+    </p>
 }
 
 @code {
