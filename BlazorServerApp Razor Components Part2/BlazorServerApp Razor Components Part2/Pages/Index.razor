@@ -1,17 +1,28 @@
 ﻿@* razor file *@
 @page "/"
 
-<input type="checkbox" @onchange="@(() => DisplayEmail = !DisplayEmail)">
+@* change state based event *@
+<input type="checkbox" @onchange="@(() => displayEmail = !displayEmail)">
 <label>show email</label>
 
 @foreach (var c in contacts)
 {
-	<ContactComponent CurrentContact="c" DisplayEmail="@DisplayEmail" />
+	<ContactComponent CurrentContact="c" DisplayEmail="@displayEmail" />
 }
+
+@* change state based data binding *@
+<input type="checkbox" @bind="displayGreetings">
+<label>show greetings</label>
+@if (displayGreetings)
+{
+	<p>welcome to razor components lesson</p>
+}
+
 
 @code {
 	private List<Contact> contacts = new();
-	private bool DisplayEmail = false;
+	private bool displayEmail = false;
+	private bool displayGreetings = false;
 
 	protected override void OnInitialized()
 	{
