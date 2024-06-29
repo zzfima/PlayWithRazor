@@ -7,7 +7,7 @@
 
 @foreach (var c in contacts)
 {
-	<ContactComponent CurrentContact="c" DisplayEmail="@displayEmail" />
+	<ContactComponent CurrentContact="c" DisplayEmail="displayEmail" deleteContactHandler="deleteContact" />
 }
 
 @* change state based data binding *@
@@ -23,6 +23,11 @@
 	private List<Contact> contacts = new();
 	private bool displayEmail = false;
 	private bool displayGreetings = false;
+
+	private void deleteContact(Contact contact)
+	{
+		contacts.Remove(contact);
+	}
 
 	protected override void OnInitialized()
 	{

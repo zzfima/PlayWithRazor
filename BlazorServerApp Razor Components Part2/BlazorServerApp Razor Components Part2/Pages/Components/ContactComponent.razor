@@ -23,6 +23,9 @@
 		<span><i>@CurrentContact?.FirstName has email @CurrentContact?.Email</i></span>
 	}
 	<br />
+
+	@* event callback *@
+	<button @onclick="@(() => deleteContactHandler.InvokeAsync(CurrentContact))">Delete contact</button>
 </p>
 
 @code {
@@ -33,6 +36,9 @@
 
 	[Parameter]
 	public bool DisplayEmail { get; set; } = false;
+
+	[Parameter]
+	public EventCallback<Contact> deleteContactHandler { get; set; }
 
 	private string buttonText = "Show";
 }
