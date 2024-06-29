@@ -15,9 +15,17 @@
 @* using inline calculations *@
 <h3>Counter * 2: @(2 * i)</h3>
 
-@code {
-    private int i = 44;
+<h3>Parity: @parity</h3>
 
+@* using conditions *@
+@if (i % 2 == 0)
+    parity = "even";
+else
+    parity = "odd";
+
+@code {
+    private string parity = string.Empty;
+    private int i = 44;
     private void removeOne() => i--;
     private string getCounter() => $"counter = {i}";
 }
