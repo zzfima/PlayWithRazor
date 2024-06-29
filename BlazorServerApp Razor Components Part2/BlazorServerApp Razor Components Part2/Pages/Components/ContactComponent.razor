@@ -1,13 +1,13 @@
 ﻿@* razor component. do not use routing *@
 <p>
     <b>Name: </b>
-    <span>@Contact?.FirstName @Contact?.LastName</span><br />
+    <span>@CurrentContact?.FirstName @CurrentContact?.LastName</span><br />
 
     <b>Email: </b>
-    <span><i>@Contact?.Email</i></span>
+    <span><i>@CurrentContact?.Email</i></span>
 </p>
 
 @code {
     [Parameter]
-    public Contact? Contact { get; set; }
+    public Contact? CurrentContact { get; set; }
 }

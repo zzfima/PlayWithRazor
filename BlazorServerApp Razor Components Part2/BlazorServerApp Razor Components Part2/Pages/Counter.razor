@@ -8,7 +8,7 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<ContactComponent Contact="@(new Contact{FirstName="Zaza", LastName= "Abubaba", Email="avx@gmail.com"})" />
+<ContactComponent CurrentContact="@(new Contact{FirstName="Zaza", LastName= "Abubaba", Email="avx@gmail.com"})" />
 
 @code {
     private int currentCount = 0;
