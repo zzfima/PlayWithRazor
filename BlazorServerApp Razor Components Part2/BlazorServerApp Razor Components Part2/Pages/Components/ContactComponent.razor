@@ -4,14 +4,19 @@
 	<span>@CurrentContact?.FirstName @CurrentContact?.LastName</span><br />
 
 	<b>Email: </b>
-	<span><i>@CurrentContact?.Email</i></span>
+	@if (DisplayEmail)
+	{
+		<span><i>@CurrentContact?.Email</i></span>
+	}
 
 	<br />
 	<button value="Show Info2" title="Show Info1" onclick="@(() =>
 		{
 			ShowDisplayInfo = !ShowDisplayInfo;
 			buttonText = ShowDisplayInfo == false ? "Show" : "Hide";
-		})">@buttonText</button>
+		})">
+		@buttonText
+	</button>
 
 	@if (ShowDisplayInfo)
 	{
@@ -25,6 +30,9 @@
 	public Contact? CurrentContact { get; set; }
 
 	private bool ShowDisplayInfo { get; set; } = false;
+
+	[Parameter]
+	public bool DisplayEmail { get; set; } = false;
 
 	private string buttonText = "Show";
 }

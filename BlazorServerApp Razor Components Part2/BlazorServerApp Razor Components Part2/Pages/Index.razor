@@ -1,20 +1,24 @@
 ﻿@* razor file *@
 @page "/"
 
+<input type="checkbox" @onchange="@(() => DisplayEmail = !DisplayEmail)">
+<label>show email</label>
+
 @foreach (var c in contacts)
 {
-    <ContactComponent CurrentContact="@c" />
+	<ContactComponent CurrentContact="c" DisplayEmail="@DisplayEmail" />
 }
 
 @code {
-    private List<Contact> contacts = new();
+	private List<Contact> contacts = new();
+	private bool DisplayEmail = false;
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
 
-        contacts.Add(new Contact { FirstName = "Alex", LastName = "Bobrov", Email = "alex.b@gmail.com" });
-        contacts.Add(new Contact { FirstName = "Fedor", LastName = "Sankin", Email = "fedor.s@gmail.com" });
-        contacts.Add(new Contact { FirstName = "Mike", LastName = "Ash", Email = "mike.ash@gmail.com" });
-    }
+		contacts.Add(new Contact { FirstName = "Alex", LastName = "Bobrov", Email = "alex.b@gmail.com" });
+		contacts.Add(new Contact { FirstName = "Fedor", LastName = "Sankin", Email = "fedor.s@gmail.com" });
+		contacts.Add(new Contact { FirstName = "Mike", LastName = "Ash", Email = "mike.ash@gmail.com" });
+	}
 }
