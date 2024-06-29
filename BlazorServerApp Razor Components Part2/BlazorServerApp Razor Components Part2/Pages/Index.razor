@@ -1,14 +1,9 @@
-﻿@page "/"
+﻿@* razor file *@
+@page "/"
 
-@foreach (var item in contacts)
+@foreach (var contact in contacts)
 {
-    <p>
-        <b>Name: </b>
-        <span>@item.FirstName @item.LastName</span><br />
-
-        <b>Email: </b>
-        <span><i>@item.Email</i></span>
-    </p>
+    <BlazorServerApp_Razor_Components_Part2.Pages.Components.ContactComponent ComponentContact="@contact"/>
 }
 
 @code {
