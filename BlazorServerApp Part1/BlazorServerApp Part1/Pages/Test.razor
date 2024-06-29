@@ -10,22 +10,23 @@
 <button class="btn btn-primary" @onclick="removeOne">Remove 1</button>
 
 @* using lambda function *@
-<button class="btn btn-primary" @onclick=@(()=>i++)>Add 1</button>
+<button class="btn btn-primary" @onclick=@(()=>num++)>Add 1</button>
 
 @* using inline calculations *@
-<h3>Counter * 2: @(2 * i)</h3>
-
-<h3>Parity: @parity</h3>
+<h3>Counter * 2: @(2 * num)</h3>
 
 @* using conditions *@
-@if (i % 2 == 0)
+@if (num % 2 == 0)
     parity = "even";
 else
     parity = "odd";
 
+<h3>Parity: @parity</h3>
+
+
 @code {
     private string parity = string.Empty;
-    private int i = 44;
-    private void removeOne() => i--;
-    private string getCounter() => $"counter = {i}";
+    private int num = 44;
+    private void removeOne() => num--;
+    private string getCounter() => $"counter = {num}";
 }
