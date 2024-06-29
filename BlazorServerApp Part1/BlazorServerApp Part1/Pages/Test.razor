@@ -32,7 +32,8 @@ else
 @* using foreach *@
 @foreach (var item in names)
 {
-    <p>name: @item</p>
+    @* using MarkupString to show html tags*@
+    <p>name: @((MarkupString)item)</p>
 }
 
 
@@ -41,14 +42,14 @@ else
     private int num = 44;
     private void removeOne() => num--;
     private string getCounter() => $"counter = {num}";
-    private List<string> names = new List<string> { "Alex", "Vasil" };
+    private List<string> names = new List<string> { "<b>Alex</b>", "Vasil" };
 
     //called before foreach
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        names.Add("Mashka");
+        names.Add("<i>Mashka</i>");
     }
 
     //called after foreach
