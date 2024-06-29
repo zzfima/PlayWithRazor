@@ -1,8 +1,8 @@
 ﻿@* component use arbitrary parameters *@
 
-<input @attributes="@CustomInputAttributes" />
+<input @attributes="@CustomArbitraryAttributes" />
 
 @code {
 	[Parameter(CaptureUnmatchedValues = true)]
-	public Dictionary<string, object>? CustomInputAttributes { get; set; }
+	public Dictionary<string, object>? CustomArbitraryAttributes { get; set; }
 }

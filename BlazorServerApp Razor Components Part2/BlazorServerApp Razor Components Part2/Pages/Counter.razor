@@ -9,8 +9,17 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 <br />
 <ContactComponent CurrentContact="@(new Contact{FirstName="Zaza", LastName= "Abubaba", Email="avx@gmail.com"})" />
+
 <br />
-<TextBoxComponent placeholder="Is a Sample placeholder" type="text" disabled="disabled"/>
+@* passing arbitrary attributes style 1*@
+<TextBoxComponent placeholder="Is a Sample placeholder" type="text" disabled="disabled" />
+
+<br />
+@* passing arbitrary attributes style 2*@
+<TextBoxComponent @attributes="@(new Dictionary<string, object>
+{
+	{"placeholder", "Second placeholder"}
+})" />
 
 @code {
 	private int currentCount = 0;
